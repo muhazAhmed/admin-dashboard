@@ -5,7 +5,8 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { TooltipProps } from "@/lib/props";
-import { FC } from "react";
+import { FC, useState } from "react";
+import { motion } from "framer-motion";
 
 export const TooltipIcon: FC<TooltipProps> = ({ tooltipText, children }) => (
   <TooltipProvider>
@@ -19,32 +20,58 @@ export const TooltipIcon: FC<TooltipProps> = ({ tooltipText, children }) => (
 );
 
 const Sidebar = () => {
+  const [selectedMenu, setSelectedMenu] = useState<number>(0);
+
+  const handleSelection = (index: number) => {
+    setSelectedMenu(index);
+  };
+
+  const sidebarVariants = {
+    hidden: { x: "-100%" },
+    visible: { x: 0 },
+  };
+
+  const iconArray = [
+    { name: "fa-solid fa-home", tooltip: "Home", id: 0 },
+    { name: "fa-solid fa-square-poll-vertical", tooltip: "Dashboard", id: 1 },
+    { name: "fa-solid fa-clipboard-check", tooltip: "Tasks", id: 2 },
+    { name: "fa-solid fa-wallet", tooltip: "Wallet", id: 3 },
+    { name: "fa-brands fa-shopify", tooltip: "Shop", id: 4 },
+    { name: "fa-solid fa-right-to-bracket", tooltip: "Sign In", id: 5 },
+  ];
+
   return (
-    <div className="sidebar">
+    <motion.div
+      className="sidebar"
+      initial="hidden"
+      animate="visible"
+      variants={sidebarVariants}
+      transition={{ type: "spring", stiffness: 100, damping: 20 }}
+    >
       <div className="top-icons">
         <i className="fa-solid fa-blog logo"></i>
-        <TooltipIcon tooltipText="Home">
-          <i className="fa-solid fa-home selected"></i>
-        </TooltipIcon>
-        <TooltipIcon tooltipText="Dashboard">
-          <i className="fa-solid fa-square-poll-vertical"></i>
-        </TooltipIcon>
-        <TooltipIcon tooltipText="Tasks">
-          <i className="fa-solid fa-clipboard-check"></i>
-        </TooltipIcon>
-        <TooltipIcon tooltipText="Wallet">
-          <i className="fa-solid fa-wallet"></i>
-        </TooltipIcon>
-        <TooltipIcon tooltipText="Shop">
-          <i className="fa-brands fa-shopify"></i>
-        </TooltipIcon>
+        {iconArray.slice(0, -1).map((icon) => (
+          <TooltipIcon key={icon.id} tooltipText={icon.tooltip}>
+            <i
+              className={`${icon.name} ${
+                selectedMenu === icon.id ? "selected" : ""
+              }`}
+              onClick={() => handleSelection(icon.id)}
+            ></i>
+          </TooltipIcon>
+        ))}
       </div>
       <div className="end-icons">
-        <TooltipIcon tooltipText="Sign In">
-          <i className="fa-solid fa-right-to-bracket"></i>
+        <TooltipIcon tooltipText={iconArray[5].tooltip}>
+          <i
+            className={`${iconArray[5].name} ${
+              selectedMenu === iconArray[5].id ? "selected" : ""
+            }`}
+            onClick={() => handleSelection(iconArray[5].id)}
+          ></i>
         </TooltipIcon>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

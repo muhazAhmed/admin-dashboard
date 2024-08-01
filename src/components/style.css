@@ -54,6 +54,10 @@
     justify-content: space-between;
 }
 
+.sidebar.open {
+    transform: translateX(0);
+}
+
 .sidebar .top-icons,
 .sidebar .end-icons {
     display: flex;
@@ -90,6 +94,20 @@
 
 .sidebar .end-icons {
     margin-bottom: 1rem;
+}
+
+.sidebar .hamburger-menu {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 13vw;
+    }
+
+    .sidebar i {
+        font-size: 17px !important;
+    }
 }
 
 /* =================== Navbar ============================ */
@@ -133,6 +151,7 @@
     display: flex;
     align-items: center;
     gap: 1rem;
+    padding-right: 5px;
 }
 
 .navbar .navbar-content .header-btn i {
@@ -147,4 +166,24 @@
     width: 100%;
     max-height: 90vh;
     overflow-y: auto;
+}
+
+
+@media (max-width: 768px) {
+    .navbar .search-bar input {
+        width: 33vw !important;
+    }
+
+    .navbar .navbar-content {
+        justify-content: center;
+    }
+
+    .navbar .navbar-content i {
+        font-size: 13px !important;
+    }
+
+    .navbar .navbar-content .header-btn {
+        gap: 0.8rem;
+        padding-right: 0;
+    }
 }
