@@ -1,0 +1,150 @@
+/* =================== Loading ============================ */
+.loading-wave {
+    width: 300px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.loading-bar {
+    width: 20px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: #3498db;
+    border-radius: 5px;
+    animation: loading-wave-animation 1s ease-in-out infinite;
+}
+
+.loading-bar:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.loading-bar:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.loading-bar:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+@keyframes loading-wave-animation {
+    0% {
+        height: 10px;
+    }
+
+    50% {
+        height: 50px;
+    }
+
+    100% {
+        height: 10px;
+    }
+}
+
+/* =================== Sidebar ============================ */
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 5vw;
+    background-color: var(--card);
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sidebar .top-icons,
+.sidebar .end-icons {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.sidebar .top-icons i,
+.sidebar .end-icons i {
+    font-size: 1.3rem;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+}
+
+.sidebar button {
+    width: 100%;
+}
+
+.sidebar .top-icons .selected {
+    border-left: 3px solid var(--primary);
+    color: var(--primary);
+    border-radius: 2px;
+}
+
+.sidebar .top-icons .logo {
+    margin-top: 0.5rem;
+    font-size: 2rem;
+    color: var(--primary);
+}
+
+.sidebar .end-icons {
+    margin-bottom: 1rem;
+}
+
+/* =================== Navbar ============================ */
+.navbar {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.navbar .navbar-content {
+    display: flex;
+    width: 100%;
+    height: 8vh;
+    background-color: var(--card);
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar .navbar-content .search-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.navbar .navbar-content .search-bar input {
+    border: none;
+    background-color: var(--shadow);
+    padding: 5px;
+    padding-left: 35px;
+    border-radius: 8px;
+    width: 20vw;
+}
+
+.navbar .navbar-content .search-bar i {
+    position: absolute;
+    left: 20px;
+}
+
+.navbar .navbar-content .header-btn {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.navbar .navbar-content .header-btn i {
+    background-color: var(--shadow);
+    border-radius: 50px;
+    padding: 10px;
+}
+
+.navbar .app-container {
+    padding: 10px;
+    padding-top: 15px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+}
