@@ -27,7 +27,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
-import Card from "../ui/Card";
+import Cards from "../ui/Cards";
 
 const Dashboard = () => {
   const radialChartDataConfig = {
@@ -54,7 +54,7 @@ const Dashboard = () => {
         <div className="left-content">
           <div className="layer-one">
             {headerChips?.map((item: any, index: number) => (
-              <Card className="header-card" key={index}>
+              <Cards className="header-card" key={index}>
                 <div className="header-card-item">
                   <i
                     className={item?.icon}
@@ -78,10 +78,10 @@ const Dashboard = () => {
                     {item?.percent}
                   </p>
                 </div>
-              </Card>
+              </Cards>
             ))}
           </div>
-          <Card className="bar-chart">
+          <Cards className="bar-chart">
             <div className="barChart-header">
               <h3>Activity</h3>
               <Select>
@@ -123,8 +123,8 @@ const Dashboard = () => {
                 </BarChart>
               </ChartContainer>
             </div>
-          </Card>
-          <Card className="data-table">
+          </Cards>
+          <Cards className="data-table">
             <h3>Recent Orders</h3>
             <div className="table-body">
               <table>
@@ -170,10 +170,10 @@ const Dashboard = () => {
                 </tbody>
               </table>
             </div>
-          </Card>
+          </Cards>
         </div>
         <div className="right-content">
-          <Card className="net-profit">
+          <Cards className="net-profit">
             <div className="net-profit-count">
               <p>Net Profit</p>
               <h3>$ 6759.25</h3>
@@ -239,8 +239,8 @@ const Dashboard = () => {
                 </RadialBarChart>
               </ChartContainer>
             </div>
-          </Card>
-          <Card className="menu">
+          </Cards>
+          <Cards className="menu">
             {menuItems?.map((item: any, index: number) => (
               <div className="menu-items" key={index}>
                 <h3>
@@ -256,8 +256,8 @@ const Dashboard = () => {
                 <i className="fa-solid fa-chevron-right"></i>
               </div>
             ))}
-          </Card>
-          <Card className="testimonial">
+          </Cards>
+          <Cards className="testimonial">
             <h3>Customer's Feedback</h3>
             {customerFeedback?.map((item: any, index: number) => (
               <div className="testimonial-body" key={index}>
@@ -273,7 +273,7 @@ const Dashboard = () => {
                 <p>{item?.comment}</p>
               </div>
             ))}
-          </Card>
+          </Cards>
         </div>
       </div>
     </div>

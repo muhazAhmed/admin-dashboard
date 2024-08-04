@@ -12,7 +12,7 @@ const cardStyles = {
   },
 };
 
-const card: FC<CardProps> = ({ children, className, id, style }) => {
+const Cards: FC<CardProps> = ({ children, className, id, style }) => {
   return (
     <div
       className={`${className} card`}
@@ -24,4 +24,4 @@ const card: FC<CardProps> = ({ children, className, id, style }) => {
   );
 };
 
-export default card;
+export default Cards;
