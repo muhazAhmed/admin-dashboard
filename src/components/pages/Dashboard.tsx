@@ -9,7 +9,6 @@ import {
   RadialBarChart,
   XAxis,
 } from "recharts";
-import Card from "../ui/Card";
 import { ChartConfig, ChartContainer } from "../ui/chart";
 import {
   radialChartData,
@@ -28,6 +27,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
+import Card from "../ui/Card";
 
 const Dashboard = () => {
   const radialChartDataConfig = {
