@@ -7,7 +7,15 @@ interface NavbarProps {
     children: any;
 }
 
+interface CardProps {
+    children: any;
+    className?: string;
+    id?: string;
+    style?: any;
+}
+
 export type {
     TooltipProps,
-    NavbarProps
+    NavbarProps,
+    CardProps
 }
